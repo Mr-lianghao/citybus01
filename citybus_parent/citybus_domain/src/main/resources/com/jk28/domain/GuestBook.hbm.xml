@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="com.jk28.domain">
+	<class name="GuestBook" table="guestbook">
+		<id name="gid" column="gid">
+			<generator class="native"></generator>
+		</id>
+		<property name="email"></property>
+		<property name="qq"></property>
+		<property name="content1"></property>
+		<property name="addtime"></property>
+		
+		<!--  private User user1; guestbook和user多对一-->
+		<many-to-one name="user1" class="User" column="uid" ></many-to-one>
+		
+		
+		<!-- private Admin admin1; guestbook 和user多对一-->
+		<many-to-one name="replayer1" class="Replay"  column="rid" ></many-to-one>
+		
+	</class>
+</hibernate-mapping>

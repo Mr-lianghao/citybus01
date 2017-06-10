@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.jk28.domain">
+	<class name="User" table="user">
+		<id name="uid" column="uid">
+			<generator class="native"></generator>
+		</id>
+		<property name="username"></property>
+		<property name="password"></property>
+		<property name="gender"></property>
+		<property name="email"></property>
+		<property name="regtime"></property>
+		<property name="lasttime"></property>
+		<property name="nums"></property>
+		<property name="user_img"></property>
+		
+		<!-- private Set<GuestBook> gbSet = new HashSet<GuestBook>(0); -->
+		<set name="gbSet">
+			<key column="gid"></key>
+			<one-to-many class="GuestBook"/>
+		</set>
+	</class>
+</hibernate-mapping>

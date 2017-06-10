@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="com.jk28.domain">
+	<class name="Line">
+		<id name="lid" column="lid">
+			<generator class="uuid"></generator>
+		</id>
+		<property name="lname"></property>
+		<property name="type"></property>
+		<property name="company"></property>
+		<property name="people"></property>
+		<property name="tel"></property>
+		<property name="img_url"></property>
+		
+		<!-- line和stationline是一对多关系 -->
+		<set name="stationline" inverse="true" cascade="all">
+			<key column="lid"></key>
+			<one-to-many class="StationLine"/>
+		</set>
+	</class>
+</hibernate-mapping>

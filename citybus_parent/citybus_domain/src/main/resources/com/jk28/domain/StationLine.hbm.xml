@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.jk28.domain">
+	<class name="StationLine" table="stationline">
+		<id name="id" column="id">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="orde"></property>
+		
+		<!--
+				private Line line;
+				private Set<Station> station = new HashSet<Station>(0);
+		  -->
+		  
+		  <!-- stationline和line是多对一关系 -->
+		  <many-to-one name="line" class="Line" column="lid" ></many-to-one>
+		 
+		 <!-- stationline和Station是一对多关系 --> 
+		  <many-to-one name="station" class="Station" column="sid" ></many-to-one>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.ui.theme" value="simple"/>
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+
+	<package name="front" namespace="/front" extends="struts-default">
+		<!-- 新闻 -->
+		<action name="newsAction_*" method="{1}" class="newsAction">
+			<result name="list">/WEB-INF/pages/news/NewAll.jsp</result>
+			<result name="view">/WEB-INF/pages/news/NewShow.jsp</result>
+		</action>		
+		
+		<!-- 线路 -->
+		<action name="lineAction_*" method="{1}" class="lineAction">
+			<result name="list">/WEB-INF/pages/bus/bus_list.jsp</result>
+			<result name="view">/WEB-INF/pages/bus/bus_info.jsp</result>
+		</action>	
+		
+		<!-- 留言-->
+		<action name="guestBookAction_*" method="{1}" class="guestBookAction">
+			<result name="list">/WEB-INF/pages/guestbook/guestbook.jsp</result>
+		</action>
+		
+		<!-- 站点-->
+		<action name="stationAction_*" method="{1}" class="stationAction">
+			<result name="slist">/WEB-INF/pages/bus/busSearch_listS.jsp</result>
+		</action>	
+		
+	</package>
+
+	
+</struts>
+	
